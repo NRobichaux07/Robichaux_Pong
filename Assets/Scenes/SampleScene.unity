@@ -840,7 +840,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 7
 --- !u!114 &690508397
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -854,7 +854,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody2D: {fileID: 690508396}
-  speed: 2
+  speed: 1
 --- !u!1 &752765550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,8 +1145,8 @@ GameObject:
   - component: {fileID: 1496083355}
   - component: {fileID: 1496083354}
   - component: {fileID: 1496083353}
-  - component: {fileID: 1496083357}
   - component: {fileID: 1496083356}
+  - component: {fileID: 1496083357}
   m_Layer: 0
   m_Name: Paddle_P2
   m_TagString: Untagged
@@ -1277,11 +1277,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1496083352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: adb7d84a6a7da834c88cbeb14ab553fd, type: 3}
+  m_Script: {fileID: 11500000, guid: 04ec9bd809d7f2048882f841a3082eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody2D: {fileID: 1496083356}
-  speed: 2
+  speed: 1
 --- !u!1 &1558400313
 GameObject:
   m_ObjectHideFlags: 0
