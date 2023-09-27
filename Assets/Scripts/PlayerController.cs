@@ -13,18 +13,16 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.W))
         {
-            playerRigidbody2D.constraints = RigidbodyConstraints2D.None;
+            playerRigidbody2D.AddForce(new Vector2(0, speed), ForceMode2D.Force);
             playerRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
             playerRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-            playerRigidbody2D.AddForce(new Vector2(0, speed), ForceMode2D.Force);
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            playerRigidbody2D.constraints = RigidbodyConstraints2D.None;
+            playerRigidbody2D.AddForce(new Vector2(0, -speed), ForceMode2D.Force);
             playerRigidbody2D.constraints = RigidbodyConstraints2D.FreezePositionX;
             playerRigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-            playerRigidbody2D.AddForce(new Vector2(0, -speed), ForceMode2D.Force);
         }
 
         if (Input.GetKeyUp(KeyCode.W))
