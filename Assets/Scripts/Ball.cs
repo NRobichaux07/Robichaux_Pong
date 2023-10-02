@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Ball : MonoBehaviour
 {
@@ -13,13 +14,18 @@ public class Ball : MonoBehaviour
     public bool isPuckGoingRight;
     public TMP_Text p1ScoreText;
     public TMP_Text p2ScoreText;
-    public float playTime;
+    private bool isPlaying;
     public int p1Score;
     public int p2Score;
     public GameObject p1Bar;
     public GameObject p2Bar;
     private Vector2 p1InitPosition;
     private Vector2 p2InitPosition;
+    public GameObject winSFX;
+    public GameObject p1Win;
+    public GameObject p2Win;
+    private float sceneLoadDelay;
+    public GameObject playAgain;
 
 
     // Start is called before the first frame update
@@ -29,15 +35,16 @@ public class Ball : MonoBehaviour
         p1InitPosition = p1Bar.transform.position;
         p2InitPosition = p2Bar.transform.position;
         isPuckGoingRight = true;
-        playTime += Time.realtimeSinceStartup;
+        isPlaying = false;
         p1Score = 0;
         p2Score = 0;
+        sceneLoadDelay = 3;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && isPlaying == false)
         {
             labelTextP1.SetActive(false);
             labelTextP2.SetActive(false);
@@ -48,9 +55,37 @@ public class Ball : MonoBehaviour
             puckDirection = new Vector2(x, y);
             puckRB.AddForce(puckDirection, ForceMode2D.Force);
         }
-        if (Input.GetKeyDown(KeyCode.Space) && playTime > 0)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            return;
+            isPlaying = true;
+        }
+        if (p1Score == 5)
+        {
+            winSFX.SetActive(true);
+            p1Win.SetActive(true);
+            playAgain.SetActive(true);
+            if (Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
+        }
+        if (p2Score == 5)
+        {
+            winSFX.SetActive(true);
+            p2Win.SetActive(true);
+            playAgain.SetActive(true);
+            if (Input.GetKey(KeyCode.Return))
+            {
+                SceneManager.LoadScene(0);
+            }
+            else if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                Application.Quit();
+            }
         }
     }
 
@@ -60,14 +95,14 @@ public class Ball : MonoBehaviour
         {
             if (isPuckGoingRight == true)
             {
-                float x = Random.Range(0f, 10f);
+                float x = Random.Range(5f, 10f);
                 float y = -10f;
                 puckDirection = new Vector2(x, y);
                 puckRB.AddForce(puckDirection, ForceMode2D.Force);
             }
             if (isPuckGoingRight == false)
             {
-                float x = Random.Range(-10f, 0f);
+                float x = Random.Range(-10f, -5f);
                 float y = -10f;
                 puckDirection = new Vector2(x, y);
                 puckRB.AddForce(puckDirection, ForceMode2D.Force);
@@ -78,14 +113,14 @@ public class Ball : MonoBehaviour
         {
             if (isPuckGoingRight == true)
             {
-                float x = Random.Range(0f, 10f);
+                float x = Random.Range(5f, 10f);
                 float y = 10f;
                 puckDirection = new Vector2(x, y);
                 puckRB.AddForce(puckDirection, ForceMode2D.Force);
             }
             if (isPuckGoingRight == false)
             {
-                float x = Random.Range(-10f, 0f);
+                float x = Random.Range(-10f, -5f);
                 float y = 10f;
                 puckDirection = new Vector2(x, y);
                 puckRB.AddForce(puckDirection, ForceMode2D.Force);
@@ -95,7 +130,7 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.tag == "Player1")
         {
             float x = 10f;
-            float y = Random.Range(0f, 10f);
+            float y = Random.Range(5f, 10f);
             puckDirection = new Vector2(x, y);
             puckRB.AddForce(puckDirection, ForceMode2D.Force);
             isPuckGoingRight = true;
@@ -104,7 +139,7 @@ public class Ball : MonoBehaviour
         if (collision.gameObject.tag == "Player2")
         {
             float x = -10f;
-            float y = Random.Range(-10f, 0f);
+            float y = Random.Range(-10f, -5f);
             puckDirection = new Vector2(x, y);
             puckRB.AddForce(puckDirection, ForceMode2D.Force);
             isPuckGoingRight = false;
@@ -123,6 +158,7 @@ public class Ball : MonoBehaviour
             isPuckGoingRight = false;
             p1Bar.transform.position = p1InitPosition;
             p2Bar.transform.position = p2InitPosition;
+            isPlaying = false;
         }
         if (collision.gameObject.tag == "ScoreLineRight")
         {
@@ -135,6 +171,7 @@ public class Ball : MonoBehaviour
             isPuckGoingRight = true;
             p1Bar.transform.position = p1InitPosition;
             p2Bar.transform.position = p2InitPosition;
+            isPlaying = false;
         }
     }
 }
