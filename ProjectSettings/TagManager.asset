@@ -10,6 +10,8 @@ TagManager:
   - WallTop
   - WallBottom
   - PlayerLabel
+  - ScoreLineLeft
+  - ScoreLineRight
   layers:
   - Default
   - TransparentFX

@@ -240,7 +240,7 @@ GameObject:
   - component: {fileID: 242232086}
   m_Layer: 0
   m_Name: Edge_Line_Right
-  m_TagString: Untagged
+  m_TagString: ScoreLineRight
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -484,10 +484,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8f31ee5401125b4e829e5d39073e44a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  puck: {fileID: 349727942}
   puckRB: {fileID: 349727946}
   puckDirection: {x: 0, y: 0}
   labelTextP1: {fileID: 2029880367}
   labelTextP2: {fileID: 1084218497}
+  isPuckGoingRight: 0
+  p1ScoreText: {fileID: 611869737}
+  p2ScoreText: {fileID: 1629995666}
+  playTime: 0
+  p1Score: 0
+  p2Score: 0
+  p1Bar: {fileID: 690508392}
+  p2Bar: {fileID: 1496083352}
+  p1InitPosition: {x: 0, y: 0}
+  p2InitPosition: {x: 0, y: 0}
 --- !u!1 &497547631
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,10 +702,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.8
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -922,7 +933,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody2D: {fileID: 690508396}
-  speed: 2
+  speed: 4
 --- !u!1 &752765550
 GameObject:
   m_ObjectHideFlags: 0
@@ -1069,7 +1080,7 @@ GameObject:
   - component: {fileID: 757218989}
   m_Layer: 0
   m_Name: Edge_Line_Left
-  m_TagString: Untagged
+  m_TagString: ScoreLineLeft
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1533,7 +1544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRigidbody2D: {fileID: 1496083356}
-  speed: 2
+  speed: 4
 --- !u!1 &1558400313
 GameObject:
   m_ObjectHideFlags: 0
@@ -1820,10 +1831,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.8
-  m_fontSizeBase: 36
+  m_fontSize: 50
+  m_fontSizeBase: 50
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
