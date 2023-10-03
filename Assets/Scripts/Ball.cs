@@ -21,12 +21,10 @@ public class Ball : MonoBehaviour
     public GameObject p2Bar;
     private Vector2 p1InitPosition;
     private Vector2 p2InitPosition;
-    public GameObject winSFX;
     public GameObject p1Win;
     public GameObject p2Win;
-    private float sceneLoadDelay;
     public GameObject playAgain;
-
+    public GameObject winSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +36,6 @@ public class Ball : MonoBehaviour
         isPlaying = false;
         p1Score = 0;
         p2Score = 0;
-        sceneLoadDelay = 3;
     }
 
     // Update is called once per frame

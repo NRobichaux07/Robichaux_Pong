@@ -498,10 +498,12 @@ MonoBehaviour:
   p2Score: 0
   p1Bar: {fileID: 690508392}
   p2Bar: {fileID: 1496083352}
-  winSFX: {fileID: 1599371435}
+  audioSource: {fileID: 1599371436}
   p1Win: {fileID: 1285847789}
   p2Win: {fileID: 1231516549}
   playAgain: {fileID: 2061175706}
+  winSFX: {fileID: 1599371435}
+  happyWheelsWin: {fileID: 8300000, guid: ef98688ddf0b8514e8ccb2f2d8aec056, type: 3}
 --- !u!1 &497547631
 GameObject:
   m_ObjectHideFlags: 0
